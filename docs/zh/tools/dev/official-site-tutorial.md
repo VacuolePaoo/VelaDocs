@@ -1,5 +1,5 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/zh/tools/dev/official-site-tutorial.html -->
-<!-- 最近更新日期: 2026-05-26 -->
+<!-- 最近更新日期: 2026-06-23 -->
 
 # AI 自动化生成
 
@@ -347,7 +347,7 @@ npx create-vela-workflow . --mode copilot
 
 **Q: 生成的代码需要调试怎么办？**
 
-使用AIoT IDE运行模拟器，可以让 AI 对比 Figma 设计稿自动调试
+可以让 AI 使用[velajs mcp 服务 (opens new window)](<https://www.npmjs.com/package/velajs-mcp>)自动调试
 
 **Q: 可以自定义 AI 的编码规则吗？**
 

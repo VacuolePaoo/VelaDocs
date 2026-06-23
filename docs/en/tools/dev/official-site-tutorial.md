@@ -1,9 +1,9 @@
 <!-- 源地址: https://iot.mi.com/vela/quickapp/en/tools/dev/official-site-tutorial.html -->
-<!-- 最近更新日期: 2026-05-26 -->
+<!-- 最近更新日期: 2026-06-23 -->
 
-# AI-Powered Automated Workflow Generation
+# AI Automated Workflow Generation
 
-> Install an AI-powered development workflow with a single command, automating the entire process from requirement description to runnable code.
+> Install an AI development workflow with a single command, automating the entire process from requirement description to runnable code.
 
 * * *
 
@@ -13,15 +13,15 @@ The Vela Quick App AI Workflow is an AI-assisted development toolkit that incorp
 
 **All you need to provide** :
 
-  * A requirement description (text, Feishu document, Markdown)
-  * A design mockup (Figma link or screenshot, optional)
+  * A requirement description (text, Feishu document, Markdown are all acceptable)
+  * A design draft (Figma link or screenshot, optional)
 
 **AI automatically completes** :
 
-  * Generates Product Requirement Document (PRD)
-  * Creates technical solution
-  * Produces complete runnable project code
-  * Validates code quality
+  * Generate Product Requirement Document (PRD)
+  * Generate technical solution
+  * Generate complete runnable project code
+  * Automatically validate code quality
 
 * * *
 
@@ -33,7 +33,7 @@ Ensure [Node.js (opens new window)](<https://nodejs.org/>) >= 16 is installed, t
 npx create-vela-workflow my-app
 ```
 
-After installation, choose the appropriate development method based on your IDE.
+After installation, choose the appropriate method to start development based on your IDE.
 
 * * *
 
@@ -44,10 +44,10 @@ Dimension | Method 1: Copilot Agent | Method 2: Kiro Workflow (Recommended)
 IDE | AIoT IDE / VS Code | Kiro
 AI Engine | GitHub Copilot (GPT-4o, etc.) | Kiro AI (Claude)
 Installation Command | `npx create-vela-workflow . --mode copilot` | `npx create-vela-workflow . --mode kiro`
-Startup Method | Select Agent in Copilot Chat | Reference workflow_starter.md in dialog
+Startup Method | Select Agent in Copilot Chat | Reference workflow_starter.md in dialog box
 Breakpoint Resumption | — | ✅ Session mechanism
-Auto Validation | Built-in Agent checks | Hooks event-driven
-Best For | Teams with existing Copilot subscriptions | Teams pursuing deep automation
+Automatic Validation | Built-in checks in Agent | Hooks event-driven
+Suitable For | Teams with existing Copilot subscriptions | Teams pursuing deep automation
 Debugging Method | AIoT-IDE built-in plugin | AIoT-IDE built-in plugin 
 
 * * *
@@ -71,21 +71,21 @@ cd your-project
 npx create-vela-workflow . --mode copilot
 ```
 
-The following directories will be added to your project:
+After installation, the following `.github/` directory will be added to the project:
 
 ```
 .github/
-├── agents/                      # Custom Agents (selectable in Copilot Chat)
+├── agents/                      # Custom Agents (optional in Copilot Chat)
 │   ├── vela-workflow.agent.md   # 🎯 Workflow entry
 │   ├── vela-s1-prd.agent.md    # S1: PRD generation
 │   ├── vela-s2-tech.agent.md   # S2: Technical solution
 │   ├── vela-s3-coding.agent.md # S3: Code generation
-│   └── vela-knowledge.agent.md # Knowledge base queries
-├── rules/                       # Coding rules (auto-injected, AI must follow)
+│   └── vela-knowledge.agent.md # Knowledge base query
+├── rules/                       # Coding rules (automatically injected, enforced by AI)
 │   ├── vela-platform.md        # Component + API whitelist
 │   ├── vela-layout.md          # Flexbox + round screen adaptation
 │   └── ...
-└── prompts/                     # Knowledge references (loaded as needed)
+└── prompts/                     # Knowledge references (loaded on demand)
     ├── vela-components.prompt.md
     ├── vela-apis.prompt.md
     └── ...
@@ -93,9 +93,9 @@ The following directories will be added to your project:
 
 ### Usage
 
-  1. Open project in IDE
+  1. Open the project in IDE
   2. Open **Copilot Chat** panel
-  3. Select **"Vela Quick App Workflow"** from Agent dropdown
+  3. Select **"Vela Quick App Workflow"** from Agent dropdown menu
   4. Enter requirements:
 
 ```
@@ -103,15 +103,15 @@ Create a weather app showing current temperature and 3-day forecast for Xiaomi W
 ```
   5. AI will guide you to choose mode:
 
-     * **Full workflow** : S1 PRD → S2 Technical solution → S3 Code (recommended for standardized output)
-     * **Quick mode** : Skip documentation, generate code directly (faster)
-  6. After each stage completes, enter `y` to confirm, `e` to edit, or `n` to redo
+     * **Full process** : S1 PRD → S2 Technical solution → S3 Code (recommended for more standardized output)
+     * **Quick mode** : Skip documentation and generate code directly (faster)
+  6. After each stage completes, enter `y` to confirm, `e` to modify, or `n` to redo
 
-### Figma Mockup Integration (Optional, Recommended)
+### Figma Design Draft Integration (Optional, Recommended)
 
-For Figma mockups, additional Figma MCP configuration is required:
+For Figma design drafts, additional Figma MCP configuration is required:
 
-Add to `mcp.json` in VS Code's `~/Library/Application Support/Code/User/`:
+Add to `~/Library/Application Support/Code/User/mcp.json` in VS Code:
 
 ```json
 {
@@ -129,13 +129,13 @@ Add to `mcp.json` in VS Code's `~/Library/Application Support/Code/User/`:
 
 > Token acquisition: Figma → Profile → Settings → Personal access tokens → Generate
 
-When Copilot completes, you should see Figma MCP in Configure Tools dialog, indicating successful workspace configuration. Then paste Figma link directly in conversation for AI to generate project from mockup contents. Example:
+When Copilot completes, you should see Figma MCP in the Configure Tools dialog, indicating successful workspace configuration. Then simply paste the Figma link directly in the conversation for AI to read and generate the project. For example:
 
 ```
-Generate Vela quick app from design: https://www.figma.com/design/dhoPQU6dFpV5TDI7BnUAjU/APP?XXXX
+Generate a Vela quick app based on design draft: https://www.figma.com/design/dhoPQU6dFpV5TDI7BnUAjU/APP?XXXX
 ```
 
-Due to Figma MCP's free tier rate limiting, we recommend Figma Desktop with Dev account. Configure as follows:
+Due to rate limits on free Figma MCP access, we recommend getting Figma Desktop and generating with a Dev account. Configuration JSON:
 
 ```json
 {
@@ -148,10 +148,10 @@ Due to Figma MCP's free tier rate limiting, we recommend Figma Desktop with Dev 
 }
 ```
 
-Open Figma client in Dev mode and confirm MCP connection, then you can use commands like:
+Open Figma client in Dev mode and confirm MCP is connected, then for example you can directly enter:
 
 ```
-@sym:Figma Desktop Generate Vela quick app from current design
+@sym:Figma Desktop Help me generate the corresponding Vela quick app based on the content in the currently open design draft
 ```
 
 * * *
@@ -174,16 +174,16 @@ cd your-project
 npx create-vela-workflow . --mode kiro
 ```
 
-The following directories will be added to your project:
+After installation, the following `.kiro/` and `.workflow/` directories will be added to the project:
 
 ```
 .kiro/
 ├── skills/vela-js-app/SKILL.md  # Complete Vela knowledge base
-├── steering/                    # Workflow specifications (auto-loaded in each conversation)
+├── steering/                    # Workflow specifications (automatically loaded into each conversation)
 ├── hooks/                       # Automation hooks
-│   ├── validate-ux-files        # Auto syntax check when editing .ux files
-│   ├── figma-design-check       # Auto compare with design after writing code
-│   └── post-coding-validation   # Auto quality validation after task completion
+│   ├── validate-ux-files        # Automatic syntax check when editing .ux files
+│   ├── figma-design-check       # Automatic design draft comparison after code writing
+│   └── post-coding-validation   # Automatic quality validation after task completion
 └── settings/mcp.json            # Figma MCP configuration
 
 .workflow/
@@ -198,7 +198,7 @@ The following directories will be added to your project:
 ### Usage
 
   1. Open project in Kiro
-  2. Enter in dialog:
+  2. Enter in dialog box:
 
 ```bash
 # Create new project and install
@@ -214,32 +214,32 @@ npx create-vela-workflow . --mode copilot
      * Local Markdown file path
      * Feishu document link
      * Web page link
-  4. Provide design mockup (optional):
+  4. Provide design draft (optional):
 
      * Figma link
      * Drag and drop design image
      * Enter "skip"
-  5. Select workflow mode and AI executes automatically
+  5. Select workflow mode and AI will execute automatically
 
-### Kiro-Unique Features
+### Kiro Unique Features
 
-**Session Breakpoint Resumption** : Enter `q` during development to save progress, which will be automatically detected and prompted for resumption next time.
+**Session Breakpoint Resumption** : During development, enter `q` to save progress. Next time it will automatically detect and prompt for resumption.
 
 **Automation Hooks** :
 
-  * After saving `.ux` file → Auto syntax check
-  * After code generation → Auto validate route consistency and API declarations
-  * With Figma design → Auto compare design fidelity
+  * Every save of `.ux` file → automatic syntax error check
+  * Code generation complete → automatic validation of route consistency and API declarations
+  * With Figma design draft → automatic design reproduction comparison
 
-**Steering Global Specifications** : Vela platform constraints (no third-party libraries, forced Flexbox, round screen safe areas, etc.) are automatically injected into each conversation without manual reference.
+**Steering Global Specifications** : Vela platform constraints (no third-party libraries, enforce Flexbox, round screen safe areas, etc.) are automatically injected into each conversation without manual reference.
 
-### Figma Mockup Integration (Same as Method 1)
+### Figma Design Draft Integration (Same as Method 1)
 
 * * *
 
 ## Workflow Demonstration
 
-### Full Workflow Example
+### Full Process Example
 
 ```bash
 # Create new project and install
@@ -250,7 +250,7 @@ cd your-project
 npx create-vela-workflow . --mode copilot
 ```
 
-### Quick Mode Example (with design mockup)
+### Quick Mode Example (with design draft)
 
 ```bash
 # Create new project and install
@@ -265,19 +265,19 @@ npx create-vela-workflow . --mode copilot
 
 ## Generated Code Specifications
 
-AI-generated code automatically follows these specifications (no manual configuration needed):
+AI-generated code automatically follows these specifications (no manual configuration required):
 
 Specification | Description
 ---|---
-Component Whitelist | Only uses Vela built-in components (div, text, image, list, etc.)
-API Whitelist | Only uses @system.xxx system APIs
-No Third-Party Libraries | No axios, lodash, echarts, etc.
+Component Whitelist | Only use built-in Vela components (div, text, image, list, etc.)
+API Whitelist | Only use @system.xxx system APIs
+No Third-party Libraries | Do not import axios, lodash, echarts, etc.
 Flexbox Layout | Default flex-direction: column
-Round Screen Adaptation | Auto safe area padding (50px top/bottom, 36px left/right)
-Asset Format | PNG images only, no SVG
+Round Screen Adaptation | Automatically add safe area padding (50px top/bottom, 36px left/right)
+Asset Format | Images only in PNG format, no SVG allowed
 Route Consistency | manifest.json routes automatically align with actual page files
 API Declarations | Imported APIs automatically declared in features
-Memory Optimization | onDestroy cleans timers, static marks static nodes 
+Memory Optimization | Clean timers in onDestroy, mark static nodes as static 
 
 * * *
 
@@ -290,13 +290,13 @@ Xiaomi Watch S3/S4/H1 | 466×466 | Round | 466
 REDMI Watch 5 | 432×514 | Square | 432
 Xiaomi Band 9 | 192×490 | Track | 192 
 
-Target device screen specs can be specified at workflow startup for automatic layout and safe area adaptation.
+The workflow can specify any target device screen specifications at startup, and AI will automatically adapt the layout and safe areas.
 
 * * *
 
-## Updating Workflow
+## Update Workflow
 
-When a new toolkit version is released, update with a single command:
+When a new version of the toolkit is released, update with a single command:
 
 ```bash
 # Create new project and install
@@ -313,7 +313,7 @@ npx create-vela-workflow . --mode copilot
 
 ### Installation Issues
 
-**Q:`npx create-vela-workflow` fails?**
+**Q:`npx create-vela-workflow` execution fails?**
 
 ```bash
 # Create new project and install
@@ -330,9 +330,9 @@ Yes. `.github/` and `.kiro/` \+ `.workflow/` don't conflict, allowing team membe
 
 ### Usage Issues
 
-**Q: Can generated code run directly?**
+**Q: Can the generated code run directly?**
 
-Yes. Generated projects include complete `package.json` and build config:
+Yes. The generated project includes complete `package.json` and build configuration:
 
 ```bash
 # Create new project and install
@@ -343,25 +343,25 @@ cd your-project
 npx create-vela-workflow . --mode copilot
 ```
 
-Use [AIoT IDE (opens new window)](<https://iot.mi.com/vela/quickapp/en/tools/aiot-ide.html>) to open project and click debug button to launch simulator.
+You can open the project in [AIoT IDE (opens new window)](<https://iot.mi.com/vela/quickapp/en/tools/aiot-ide.html>) and click the debug button to launch the simulator.
 
-**Q: How to debug generated code?**
+**Q: What if the generated code needs debugging?**
 
-Run simulator in AIoT IDE and have AI automatically debug against Figma design
+You can have the AI automatically debug using the [velajs mcp service (opens new window)](<https://www.npmjs.com/package/velajs-mcp>).
 
 **Q: Can I customize AI coding rules?**
 
-Yes. Edit configuration files after installation:
+Yes. Edit the configuration files after installation:
 
-  * Method 1: Modify Markdown files in `.github/rules/`
-  * Method 2: Modify Markdown files in `.kiro/steering/`
+  * Method 1: Modify Markdown files under `.github/rules/`
+  * Method 2: Modify Markdown files under `.kiro/steering/`
 
-**Q: Why doesn't generated code exactly match design?**
+**Q: Why doesn't the generated project code exactly match the design draft?**
 
-  * Check if workspace has proper MCP configuration (e.g., mcp-figma)
+  * Check if the workspace has properly configured the corresponding MCP (e.g., mcp-figma)
   * Different models may generate slightly different code
-  * Recommend adding check: "Please review project code against Figma design, ensuring correct dimensions, fonts, and complete consistency"
-  * For missing graphics, enter: "Please import design images to project common and reference them"
+  * Recommend adding checks like: `Please review the project code against the Figma design draft to ensure correct dimensions, fonts, and complete consistency`
+  * For missing graphics, enter: `Please import the design draft image assets into the project's common folder and reference them`
 
 **Q: What requirement input methods are supported?**
 
@@ -371,14 +371,14 @@ Text description | ✅ | ✅
 Markdown file | ✅ | ✅
 Feishu document link | — | ✅ (requires Feishu MCP)
 Web page link | ✅ | ✅
-Figma design | ✅ (requires Figma MCP) | ✅ (requires Figma Desktop)
+Figma design draft | ✅ (requires Figma MCP) | ✅ (requires Figma Desktop)
 Design screenshot | ✅ | ✅ 
 
 * * *
 
 ## Related Resources
 
-  * [Vela Quick App Development Docs (opens new window)](<https://iot.mi.com/vela/quickapp/>)
+  * [Vela Quick App Development Documentation (opens new window)](<https://iot.mi.com/vela/quickapp/>)
   * [AIoT IDE Download (opens new window)](<https://iot.mi.com/vela/quickapp/en/tools/aiot-ide.html>)
   * [Kiro IDE Download (opens new window)](<https://kiro.dev/>)
   * [GitHub Copilot (opens new window)](<https://github.com/features/copilot>)
